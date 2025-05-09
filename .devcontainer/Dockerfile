@@ -11,8 +11,6 @@ RUN pip install --no-cache-dir --upgrade \
     setuptools \
     jupyterlab \
     rich \
-    mypy \
-    pyright \
     pytest \
     hypothesis \
     httpx \
@@ -21,6 +19,8 @@ RUN pip install --no-cache-dir --upgrade \
     numpy \
     pandas
     # # \
+    # mypy \
+    # pyright \
     # pydantic-ai[logfire] \
     # logfire \
     # huggingface_hub[cli,torch]

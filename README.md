@@ -4,7 +4,7 @@ An AI-driven customer support system for product information and comparison.
 
 ## Overview
 
-This project implements a customer support agent that can extract information from PDF product manuals, compare products, and analyze differences between them. It uses a "Workflow: Routing" pattern to handle different types of customer queries, routing them to the appropriate handler based on the detected intent.
+This project implements a customer support agent that can extract information from customer's sensor product PDFs, compare products, and analyze differences between them. It uses a "Workflow: Routing" pattern as defined in https://www.anthropic.com/engineering/building-effective-agents to handle different types of customer queries, and using the customer agent's tools when applicable based on the detected intent. There will ony be one agent defined (customer_support_agent) to handle the queries and tool invocations.
 
 ## Features
 
@@ -19,10 +19,22 @@ This project implements a customer support agent that can extract information fr
 The system is built with a clean, modular architecture:
 
 - **Customer Support Agent**: Main entry point that routes queries based on intent
-- **PDF Processor**: Extracts content from PDF files
-- **Compare Processor**: Compares specifications between products
+- **PDF Processor**: Tool to extract content from PDF files
+- **Compare Processor**: Tool to compare specifications between products
 - **AI Difference Analyzer**: Analyzes differences using LLM
-- **LLM Client**: Abstraction for interacting with LLM providers
+- **LLM Client**: Abstraction for tools to interact with different LLM providers
+
+## Technology to use
+- **Backend Code**: Python
+- **Agentic Framework**: Agno
+- **Python Linter/Formatter**: ruff
+- **FrontEnd Code**: React, Typescript, Tailwind CSS, ShadUI
+- **Python Package Management**: uv
+- **Python Build Backend**: hatchling
+- **Other Python libraries**: use 'uv pip list' 
+
+## Forbidden Python Package Install or Usage
+- pip
 
 ## Installation
 
@@ -48,8 +60,8 @@ The API will be available at http://localhost:8000
 ### API Endpoints
 
 - `POST /api/query`: Handle a customer query
-- `GET /api/models`: List available models
-- `GET /api/model/{model_number}`: Get information about a specific model
+- `GET /api/models`: List available product sensor models
+- `GET /api/model/{model_number}`: Get information about a specific product sensor model
 - `POST /api/compare`: Compare multiple models
 - `POST /api/analyze`: Analyze differences between models
 
@@ -81,10 +93,8 @@ src/
 │   │   ├── differences.py
 │   │   ├── pdf.py
 │   │   └── product.py
-│   ├── services/
-│   │   ├── __init__.py
-│   │   └── llm_client.py
-│   ├── tools/
+│   ├── services/ # Services that tools can call
+│   ├── tools/ # Tools that LLM can call
 │   │   ├── __init__.py
 │   │   ├── ai_difference_analyzer.py
 │   │   ├── compare_processor.py
@@ -93,10 +103,9 @@ src/
 │   ├── __init__.py
 │   └── main.py
 ├── data/
-│   ├── pdfs/
-│   ├── diagrams/
-│   └── processed/
-└── static/
+│   ├── pdfs/ # PDFs in original form to be extracted from
+│   └── diagrams/ # diagrams extracted from PDFs for displaying in front end 
+└── scripts/
 ```
 
 ## License

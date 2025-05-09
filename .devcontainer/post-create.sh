@@ -4,10 +4,10 @@ set -e
 echo "Setting up development environment..."
 
 # Install Rye (Modern package manager replacement for pip, requirements.txt, setup.py [**Rye uses pyproject.toml in Pythom projects] ) 
-curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" RYE_TOOLCHAIN="$(which python)"  bash
-export PATH="$HOME/.rye/shims:${PATH}"
-echo 'source "$HOME/.rye/env"' >> ~/.bashrc
-echo 'source "$HOME/.rye/env"' >> ~/.zshrc
+#curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" RYE_TOOLCHAIN="$(which python)"  bash
+#export PATH="$HOME/.rye/shims:${PATH}"
+#echo 'source "$HOME/.rye/env"' >> ~/.bashrc
+#echo 'source "$HOME/.rye/env"' >> ~/.zshrc
 
 # Setup ZSH plugins
 echo "Setting up ZSH plugins..."
@@ -27,7 +27,8 @@ cd $LOCAL_WORKSPACE_FOLDER
 ### Project Specific Settings ####
 
 # Installs backend dependencies from pyproject.toml
-rye sync
+#rye sync
+uv sync
 
 # Install frontend dependencies
 if [ -d "/frontend" ]; then

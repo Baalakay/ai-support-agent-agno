@@ -39,12 +39,12 @@
                 "terminal.integrated.profiles.linux": { "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] } },
                 "terminal.integrated.defaultProfile.osx": "zsh",
                 "terminal.integrated.profiles.osx": { "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] } },
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "mypy-type-checker.enabled": true,
-                "mypy-type-checker.path": ["/usr/local/bin/mypy"],
-                "mypy-type-checker.args": [
-                    "--config-file",
-                    "backend/mypy.ini"
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+                // "mypy-type-checker.enabled": true,
+                // "mypy-type-checker.path": ["/usr/local/bin/mypy"],
+                // "mypy-type-checker.args": [
+                //     "--config-file",
+                //     "backend/mypy.ini"
                 ],
                 "typescript.tsdk": "frontend/node_modules/typescript/lib"
             },
