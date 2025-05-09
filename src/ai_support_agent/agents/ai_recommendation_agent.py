@@ -11,7 +11,7 @@ from ..config import get_llm_config
 
 logger = logging.getLogger(__name__)
 
-class AIDifferenceAnalyzer:
+class AIAIRecommendationAgent:
     """Service for analyzing differences between models using AI.
     
     This component is part of the Processing Layer and is called by the
